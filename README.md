@@ -1,5 +1,11 @@
 # Tech-Startup-Template
 
+## Running the client
+
+1. `cd` into `client`
+2. Run `npm install`
+3. Run `npm start`
+
 ## Running the server
 
 If on Windows:
