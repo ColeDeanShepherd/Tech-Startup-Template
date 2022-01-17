@@ -6,6 +6,12 @@
 2. Run `npm install`
 3. Run `npm start`
 
+## Setting up the server for development
+
+1. Install [PostgreSQL](https://www.postgresql.org/download/)
+2. If on Windows, add `PQ_LIB_DIR=C:\Program Files\PostgreSQL\14\lib` to system environment variables, add `C:\Program Files\PostgreSQL\14\lib` and `C:\Program Files\PostgreSQL\14\bin` to `PATH`. See [this blog post](https://dev.to/ssivakumar/rust-diesel-fixing-issues-with-setup-3k56) for more info.
+3. `cargo install diesel_cli --no-default-features --features postgres`
+
 ## Running the server
 
 If on Windows:
