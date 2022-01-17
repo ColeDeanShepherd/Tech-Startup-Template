@@ -1,23 +1,9 @@
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{get, post, put, delete, web, App, HttpResponse, HttpServer, Responder};
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 
-#[get("/")]
-async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
-}
+fn run_action<T: Action>(action: T) {}
 
-#[post("/echo")]
-async fn echo(req_body: String) -> impl Responder {
-    HttpResponse::Ok().body(req_body)
-}
-
-async fn manual_hello() -> impl Responder {
-    HttpResponse::Ok().body("Hey there!")
-}
-
-#[actix_web::main]
-async fn main() -> std::io::Result<()> {
-    // load SSL keys
+fn enable_ssl(http_server) {
     let mut builder =
         SslAcceptor::mozilla_intermediate(SslMethod::tls()).unwrap();
     builder
@@ -25,13 +11,17 @@ async fn main() -> std::io::Result<()> {
         .unwrap();
     builder.set_certificate_chain_file("cert.pem").unwrap();
 
+    http_server.bind_openssl("127.0.0.1:8080", builder)?
+}
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(hello)
             .service(echo)
-            .route("/hey", web::get().to(manual_hello))
     })
-    .bind_openssl("127.0.0.1:8080", builder)?
+    .enable_ssl()
     .run()
     .await
 }
