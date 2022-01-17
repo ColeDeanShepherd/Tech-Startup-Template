@@ -1,10 +1,8 @@
 [package]
-name = "tech-startup-template-server"
+name = "tech-startup-template-server-core"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-actix-web = { version = "3", features = ["openssl"] }
-openssl = { version = "0.10" }
 diesel = { version = "1.4.8", features = ["postgres"] }
 dotenv = "0.15.0"

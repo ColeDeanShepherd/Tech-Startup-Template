@@ -1,6 +1,6 @@
-type VideoId = u64;
+pub type VideoId = u64;
 
-struct Video {
+pub struct Video {
     id: VideoId,
     video_file_url: String,
     description: String,
@@ -11,6 +11,6 @@ struct Video {
     uploaded_at: Instant
 }
 
-struct UploadVideoAction {}
-struct ChangeVideoDescriptionAction {}
-struct LikeVideoAction {}
+pub struct UploadVideoAction {}
+pub struct ChangeVideoDescriptionAction {}
+pub struct LikeVideoAction {}

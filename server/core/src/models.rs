@@ -1,45 +1,45 @@
-struct VideoLike {
+pub struct VideoLike {
     user_id: UserId,
     video_id: VideoId,
     created_at: Instant
 }
 
-type CommentId = u64;
+pub type CommentId = u64;
 
-struct Comment {
+pub struct Comment {
     id: CommentId,
     text: String,
     parent_comment_id: CommentId,
     created_at: Instant
 }
 
-struct CommentLike {
+pub struct CommentLike {
     user_id: UserId,
     comment_id: CommentId,
     created_at: Instant
 }
 
-type MessageId = u64;
+pub type MessageId = u64;
 
-struct Message {
+pub struct Message {
     id: MessageId,
     text: String
 }
 
-type SongId = u64;
+pub type SongId = u64;
 
-struct Song {
+pub struct Song {
     id: SongId,
     song_file_url: String,
     name: String
 }
 
-struct Follower {
+pub struct Follower {
     user_id: UserId,
     followed_user_id: UserId
 }
 
-struct UserLike {
+pub struct UserLike {
     user_id: UserId,
     liked_user_id: UserId,
     created_at: Instant
