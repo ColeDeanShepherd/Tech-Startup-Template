@@ -1,9 +1,0 @@
-[package]
-name = "tech-startup-template-rest-api"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-tech-startup-template-server-core = { path = "../core" }
-actix-web = { version = "3", features = ["openssl"] }
-openssl = { version = "0.10" }
